@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path:'../.env'})
 const express = require ('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
 
+const uri = process.env.ATLAS_URI
 
-
-const uri = process.env.ATLAS_URI;
+console.log(uri)
 mongoose.connect(uri,{useNewUrlParser:true,useCreateIndex:true});
 const connection = mongoose.connection;
 connection.once('open',()=>{console.log('bubble tea has connect to the remote database')})
