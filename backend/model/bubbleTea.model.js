@@ -14,6 +14,7 @@ const bubbleTeaSchema = new Schema ({
     texture:{type:Number,maxlength:2},
     quantity:{type:Number,maxlength:2},
     review:{type:String},
+    name:{type:String},
     store:{type:mongoose.Schema.Types.ObjectId,ref:"BTeaRestaurant"}
 })
 

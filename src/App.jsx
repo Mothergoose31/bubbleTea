@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router,route} from 'react-router-dom';
 import Navbar from './components/navBar.jsx'
 import './App.css';
-import AddStore from './components/addStore.jsx'
+import StoreList from './components/storeList.jsx'
 import AddStoreForm from './components/addStore.jsx'
 
 
@@ -10,7 +10,8 @@ import AddStoreForm from './components/addStore.jsx'
 function App() {
   return (
     
-    <AddStoreForm/>
+    // <AddStoreForm/>
+    <StoreList/>
     // <Router>
     // {/* navbar needs to be added */}
     // <Navbar/>

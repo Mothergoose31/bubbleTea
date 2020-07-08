@@ -8,6 +8,8 @@ import Container from '@material-ui/core/Container';
 import {useForm, Controller} from 'react-hook-form';
 import axios from 'axios';
 
+
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -26,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddStoreForm() {
-  const classes = useStyles();
-  const {register, handleSubmit, control} = useForm()
-
+    const classes = useStyles();
+    const {register, handleSubmit, control} = useForm()
+    const api = 'http://localhost:3001/'
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -36,7 +38,17 @@ export default function AddStoreForm() {
                 <Typography component="h1" variant="h5">                
                     Bobba Store             
                 </Typography>
-                <form className={classes.form} noValidate onSubmit={handleSubmit((data)=> alert(JSON.stringify(data)))}>
+                <form className={classes.form} noValidate onSubmit={handleSubmit((data)=>  
+                axios.post(api+'stores/addstore',{
+                    establishment:data.establishment,
+                    adress:data.adress,
+                    phoneNumber:data.phoneNumber
+                }).then((res)=>{
+                    console.log(res);
+                    console.log('responce')
+                }).catch((err)=>{
+                    console.log(err)
+                }))}>
                     <TextField
                         variant="outlined"
                         margin="normal"

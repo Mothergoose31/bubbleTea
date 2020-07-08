@@ -6,15 +6,15 @@ const bubbleTea = require('../model/bubbleTea.model.js');
 //GET ALL BUBBLE TEA STORES 
 router.route('/').get((req,res)=>{
     BTeaRestaurant.find()
-    .then((stores=>res.json(stores)))
+    .then((stores=>res.json(stores)&& console.log(stores)))
     .catch(err=>res.status(400).json('Error' + err))
 })
 
 // GET A SINGLE RESTAURANT
 router.route('/store/:storeId').get((req,res)=>{
-    BTeaRestaurant.findOne({_id: req.params.storeId}).populate("dishes")
+    BTeaRestaurant.findById({_id: req.params.storeId}).populate("dishes")
     .then((store)=>{
-        res.json(store)
+        res.json(store) && console.log(store)
     })
     .catch(err=>res.json(err.message))
 })
@@ -65,7 +65,9 @@ router.route('/store/:storeId').delete((req,res)=>{
 
 //POST A SINGLE DISH
 router.route('/store/:storeId/dishes').post((req,res)=>{
-    BTeaRestaurant.findById(req.params.storeId,(err,store)=>{
+    BTeaRestaurant.findById(req.params.storeId,(store)=>{
+        console.log(store)
+        console.log(req.params.storeId)
         let newbubbleTea = new bubbleTea({
             dish:req.body.dish,
             price:req.body.price,
@@ -77,10 +79,11 @@ router.route('/store/:storeId/dishes').post((req,res)=>{
             texture:req.body.texture,
             quantity:req.body.quantity,
             review:req.body.review,
+            name:req.body.name,
         })
-        newbubbleTea.save((err,bubbleTea)=>{
+        newbubbleTea.save((bubbleTea)=>{
             store.dishes.push(bubbleTea)
-            store.save((err,store)=>{
+            store.save((store)=>{
                 res.json(store) && console.log("succefully added a new dish!")
             })
         })
