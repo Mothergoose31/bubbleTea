@@ -10,8 +10,8 @@ import AddStoreForm from './components/addStore.jsx'
 function App() {
   return (
     
-    // <AddStoreForm/>
-    <StoreList/>
+    //<AddStoreForm/>
+   <StoreList/>
     // <Router>
     // {/* navbar needs to be added */}
     // <Navbar/>

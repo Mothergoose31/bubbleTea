@@ -65,8 +65,9 @@ router.route('/store/:storeId').delete((req,res)=>{
 
 //POST A SINGLE DISH
 router.route('/store/:storeId/dishes').post((req,res)=>{
-    BTeaRestaurant.findById(req.params.storeId,(store)=>{
-        console.log(store)
+    BTeaRestaurant.findById(req.params.storeId,(err,store)=>{
+        console.log(store + 'testing')
+        console.log()
         console.log(req.params.storeId)
         let newbubbleTea = new bubbleTea({
             dish:req.body.dish,
@@ -81,9 +82,11 @@ router.route('/store/:storeId/dishes').post((req,res)=>{
             review:req.body.review,
             name:req.body.name,
         })
-        newbubbleTea.save((bubbleTea)=>{
+        newbubbleTea.save((err,bubbleTea)=>{
+            console.log('store inside bubble tea'+ store)
+            console.log('this is awsome ')
             store.dishes.push(bubbleTea)
-            store.save((store)=>{
+            store.save((err,store)=>{
                 res.json(store) && console.log("succefully added a new dish!")
             })
         })
