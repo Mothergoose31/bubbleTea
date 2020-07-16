@@ -4,14 +4,15 @@ import Navbar from './components/navBar.jsx'
 import './App.css';
 import StoreList from './components/storeList.jsx'
 import AddStoreForm from './components/addStore.jsx'
+import DishesList from './components/dishesList.jsx'
 
 
 
 function App() {
   return (
-    
+    <DishesList/>
     //<AddStoreForm/>
-   <StoreList/>
+   //<StoreList/>
     // <Router>
     // {/* navbar needs to be added */}
     // <Navbar/>
