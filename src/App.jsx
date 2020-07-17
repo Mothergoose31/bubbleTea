@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router,route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Navbar from './components/navBar.jsx'
 import './App.css';
 import StoreList from './components/storeList.jsx'
