@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {AppBar, Tab, Tabs} from '@material-ui/core';
 import Navbar from './components/navBar.jsx'
 import './App.css';
 import StoreList from './components/storeList.jsx'
@@ -10,6 +11,9 @@ import DishesList from './components/dishesList.jsx'
 
 function App() {
   return (
+    <AppBar Title="B-eval" >
+
+    </AppBar>
     <DishesList/>
     //<AddStoreForm/>
    //<StoreList/>
