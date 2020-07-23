@@ -10,6 +10,7 @@ export default function DishesList() {
     useEffect(()=>{
         const fetchData = async() =>{
             axios.get(api+'stores/dishes')
+            
                 .then(res=>{
                     console.log(res.data)
                     console.log(res.data[0].bobba)

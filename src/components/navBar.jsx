@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import StoreList from './storeList'
-import DishList from './DishList'
+import DishList from './dishList'
+import StorePage from './StorePage.jsx'
 
 const Navbar = () => (
 
@@ -27,7 +28,7 @@ const Navbar = () => (
         </nav>
 
         <Route exact path='/'  />
-
+        <Route path='stores/store/:storeId' render={()=><StorePage />}/>
         <Route exact path='/stores' render={() => <StoreList />} />
         <Route exact path='/dishes' render={() => <DishList />} />
 

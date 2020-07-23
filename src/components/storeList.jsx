@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
-import {Card, CardActions, CardContent,CssBaseline, Button, Typography, Container } from '@material-ui/core/'
+import {Card, CardActions, CardContent,CssBaseline, Button, Typography, Container} from '@material-ui/core/'
+import {Link} from 'react-router-dom'
 
 
 
@@ -25,14 +26,20 @@ export default function StoreList() {
             <CssBaseline/>
             <div>
                 {data.map(store=>{
-                    return( <Card key={store.id}>
-                                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">{store.establishment}</Typography>
-                    <br/>
-                    <Typography variant="body2" color="textSecondary" component="p">{store.adress}</Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">{store.phoneNumber}</Typography>
-                                </CardContent>
-                    </Card>)
+                    return( 
+                    
+                        <Card key={store.id}>
+                                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">{store.establishment}</Typography>
+                        <br/>
+                        <Typography variant="body2" color="textSecondary" component="p">{store.adress}</Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">{store.phoneNumber}</Typography>
+                        
+                        <Link to={`stores/store/${store._id}`}>Store Reviews</Link>
+                                    </CardContent>
+                        
+                        </Card>
+                    )
                 })}
             </div>
         </Container>
