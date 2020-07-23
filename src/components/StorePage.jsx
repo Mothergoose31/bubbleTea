@@ -8,6 +8,7 @@ export default function StorePage ({match}){
     return(
         <Container>
             <Typography gutterBottom variant="h5" component="h2">Storeid :{storeId}</Typography>
+            <Typography variant="body2" color="textSecondary" component="p">Hi</Typography>
 
         </Container>
 

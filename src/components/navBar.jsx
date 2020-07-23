@@ -28,7 +28,7 @@ const Navbar = () => (
         </nav>
         <Switch>
             <Route exact path='/'  />
-            <Route  exact path='stores/store/:storeId' render={props=><StorePage {...props} />}/>
+            <Route  exact path='/stores/store/:storeId' render={props=><StorePage {...props} />}/>
             <Route exact path='/stores' render={() => <StoreList />} />
             <Route exact path='/dishes' render={() => <DishList />} />
         </Switch>
