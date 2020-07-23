@@ -13,7 +13,7 @@ const DishList = () => {
             axios.get(api + 'stores/dishes')
                 .then(res => {
                     console.log(res.data)
-                    console.log(res.data[0].establishment)
+                    console.log(res.data[0].dish)
                     setData(res.data)
                 })
         }
@@ -25,7 +25,7 @@ const DishList = () => {
             <CssBaseline />
             <div>
                 {data.map(dish => {
-                    return (<Card key={dish.id}>
+                    return (<Card key={dish._id}>
                         <CardContent>
                             <hr />
                             <Typography gutterBottom variant="h5" component="h2">{dish.dish}</Typography>

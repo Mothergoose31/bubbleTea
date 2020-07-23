@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom';
 import StoreList from './storeList'
 import DishList from './dishList'
 import StorePage from './StorePage.jsx'
@@ -7,31 +7,31 @@ import StorePage from './StorePage.jsx'
 const Navbar = () => (
 
     <Router>
-
+        
         <nav className="navbar navbar-expand navbar-dark bg-dark mb-4">
             <div className="container">
                 <a className="navbar-brand" href="#">Bubble Tea!</a>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <Link to="/"><a className="nav-link">Home</a></Link>
+                            <Link to="/"  className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/stores"><a className="nav-link">Store List</a></Link>
+                            <Link to="/stores"  className="nav-link">Store List</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/dishes"><a className="nav-link">Dishes</a></Link>
+                            <Link to="/dishes"  className="nav-link">Dishes</Link>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-        <Route exact path='/'  />
-        <Route path='stores/store/:storeId' render={()=><StorePage />}/>
-        <Route exact path='/stores' render={() => <StoreList />} />
-        <Route exact path='/dishes' render={() => <DishList />} />
-
+        <Switch>
+            <Route exact path='/'  />
+            <Route  exact path='stores/store/:storeId' render={props=><StorePage {...props} />}/>
+            <Route exact path='/stores' render={() => <StoreList />} />
+            <Route exact path='/dishes' render={() => <DishList />} />
+        </Switch>
     </Router>
 
 
