@@ -28,16 +28,15 @@ export default function StoreList() {
                 {data.map(store=>{
                     return( 
                     
-                        <Card key={store._id}>
+                        <Card key={store.id}>
                                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">{store.establishment}</Typography>
                         <br/>
                         <Typography variant="body2" color="textSecondary" component="p">{store.adress}</Typography>
                         <Typography variant="body2" color="textSecondary" component="p">{store.phoneNumber}</Typography>
-                        
-                        <Link to={`stores/store/${store._id}`} key={store._id} >Store Reviews</Link>
                                     </CardContent>
                         
+                        <Link to={`/stores/store/${store._id}`}>{store.id}+test</Link>
                         </Card>
                     )
                 })}

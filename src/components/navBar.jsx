@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom';
 import StoreList from './storeList'
 import DishList from './dishList'
 import StorePage from './StorePage.jsx'
+import AddStoreForm from './addStore.jsx'
 
 const Navbar = () => (
 
@@ -22,6 +23,9 @@ const Navbar = () => (
                         <li className="nav-item">
                             <Link to="/dishes"  className="nav-link">Dishes</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/stores/addstore"  className="nav-link">Add Store</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -31,6 +35,7 @@ const Navbar = () => (
             <Route  exact path='/stores/store/:storeId' render={props=><StorePage {...props} />}/>
             <Route exact path='/stores' render={() => <StoreList />} />
             <Route exact path='/dishes' render={() => <DishList />} />
+            <Route exact path='/stores/addstore' render={() =><AddStoreForm/>}/>
         </Switch>
     </Router>
 

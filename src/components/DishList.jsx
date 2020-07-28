@@ -12,14 +12,15 @@ const DishList = () => {
         const fetchData = async () => {
             axios.get(api + 'stores/dishes')
                 .then(res => {
-                    console.log(res.data)
-                    console.log(res.data[0].dish)
+                    // console.log(res.data)
+                    // console.log(res.data[0].dish)
                     setData(res.data)
                 })
         }
         fetchData();
     }, [])
-
+const bobbadishes = data.dishes
+console.log(bobbadishes)
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
